@@ -15,7 +15,7 @@ A web application for a fictional truck parts manufacturing company. The product
 
 # Live Hosting:
 - Amazon Web Services Elastic Beanstalk
-- www.mallory-truck-company
+- www.mallory-truck-company.xyz
 
 
 
