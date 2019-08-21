@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block background %}
+<style>
+body {
+    background-color: white;
+}
+
+.jumbotron h1 {
+    color:rgb(7, 8, 80);
+}
+
+#display-product-image img{
+    height: 500px;
+    width: 500px;
+}
+
+.product-detail-container{
+    padding:30px;
+}
+</style>
+{% endblock %}
+
+
+{% block head %}
+<title>{{object.name}}</title>
+{% endblock %}
+
+{% block body %}
+<header class="jumbotron jumbotron-fluid">
+<h1>{{ object.name }}</h1>
+</header>
+<div class = "product-detail-container">
+    <div class="row">
+        <div class = "col-lg-6 col-md-auto">
+<p>Product number: {{ object.product_no }}</p>
+<p>{{ object.description }}</p>
+<p>Price: ${{  object.price }}</p>
+</div>
+<div class = "col-lg-6 col-md-auto" id = display-product-image>
+<p><img class = "img-fluid" src="{{ object.image.url }}" alt=""></p>
+</div>
+</div>
+</div>
+
+{% endblock %}

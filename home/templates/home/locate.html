@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block background %}
+<style>
+html, body, .container-fluid{
+    color: white;
+    background-color :black;
+    height:100%;
+    width:100%;
+    }
+
+    .maprow {
+    height: 100%;
+}
+.headingrow {
+  justify-content: center;
+    height: 40%;
+}
+
+/* .headingrow h1{
+  font-size:1.3rem;
+}
+
+.headingrow h3{
+  font-size:.6rem;
+} */
+
+#map {
+  color: black;
+    height: 100%;
+   }
+
+@media (min-width: 0px) { 
+  .headingrow h1{ font-size: 1.2rem;}
+  .headingrow h3{font-size: .7rem;}
+  }
+
+@media (min-width: 576px) {
+    .headingrow h1{ font-size: 1.9rem; }
+    .headingrow h3{font-size: .9rem;}
+}
+@media (min-width: 768px) {
+    .headingrow h1{ font-size: 2.5rem; }
+    .headingrow h3{font-size: 1.5rem;}
+}
+@media (min-width: 992px) {
+    .headingrow h1{ font-size: 3.5rem; }
+    .headingrow h3{font-size: 1.5rem;}
+}
+@media (min-width: 1200px) {
+    .headingrow h1{ font-size: 4.5rem; }
+     .headingrow h3{font-size: 2rem;}
+}
+   
+   </style>
+<head>
+<script src="http://maps.google.com/maps/api/js?key={{API_KEY}}&sensor=false"></script>
+</head>
+{% endblock %}
+
+{% block body %}
+<!--wrapper element-->
+<div class = "container-fluid">
+    <div class="row headingrow">
+   <h1>Find a Distributor</h1>
+   <h3>Click on a red marker in our interactive map for more details on a specific distributor</h3>
+  </div>
+   <div id = "map" class="row maprow"></div>
+
+
+    
+          
+<script type="text/javascript">
+  var locations = [['Utility Trailer Sales of Spokane', 47.5923418, -117.5580827, '10401 West West Bow Road\r\nSpokane, WA 99224', '509-321-2326', 'allang@utilityboise.com'], ['A & F TRAILER MFG, INC.', 33.9794682, -84.5591702, '1155 BELLS FERRY RD\r\nMARIETTA, GA 30066', '(770) 420-9194', 'http://aftrailer.com/aftrailer/Welcome.html'], ['AG VAN & TRUCK EQUIP.', 32.8837558, -97.0385723, '2323 N. SUPPORT RD.\r\nDALLAS, TX 75261', '(214) 638-8805', 'http://www.agvan.com/'], ['ALBAN TRACTOR CO. INC', 39.32952909999999, -76.4903769, '8531 PULASKI HIGHWAY\r\nBALTIMORE, MD 21237', '410-686-7777', 'http://www.albancat.com/'], ['ALLEGHENY FORD ISUZU TRUCK SALES', 40.4304559, -79.9924628, '5 South 6th Street\r\nPittsburgh, PA 15203', '855-996-0725', 'http://www.allegheny-trucks.com/'], ['ALTEC INDUSTRIES', 33.4202155, -86.7035152, '210 INVERNESS CENTER DR\r\nBIRMINGHAM, AL 35242', '(205) 991-7733', 'http://www.altec.com/'], ['AMES CONSTRUCTION INC.', 44.740195, -93.30228199999999, '2000 AMES DR\r\nBURNSVILLE, MN 55306', '952-435-7106', 'http://www.amesconstruction.com/'], ['ANDERSON SERVICE, INC', 45.7607246, -108.5400424, '475 MOORE LANE\r\nBILLINGS, MT 59101', '(800) 776-4297', 'http://www.andersonforkliftinc.com/'], ['ARISTA TRUCK SYSTEMS', 42.8709223, -85.6796439, '5125 CLAY AVE. S.W.\r\nGRAND RAPIDS, MI 49548', '800 858-3659', 'http://www.aristatrucksystems.com/'], ['AUTO PORT INC.', 39.71017519999999, -75.5350395, '203 PIGEON POINT RD.\r\nNEW CASTLE, DE 19720', '(302) 658-5100', 'http://www.autoportinc.com/'], ['AUTO TRUCK GROUP', 41.97909509999999, -88.234404, '1420 BREWSTER CREEK BLVD.\r\nBARTLETT, IL 60103-1695', '(630) 860-5600', 'http://www.autotruck.com/'], ['BADGER BODY & TRUCK EQUIPMENT', 41.2276333, -96.01060939999999, '6336 GROVER STREET\r\nOMAHA, NE 68106', '402-558-5300', 'http://www.badgerbody.com/'], ['BAKER TRUCK EQUIPMENT CO.', 38.4345349, -82.0118719, 'P. O. BOX 482\r\nHURRICANE, WV 25526', '304-722-3814', 'http://www.bakerwv.com/']];
+
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 5,
+    center: new google.maps.LatLng(38.0000,-97.0000),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+ 
+
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  //Create a marker for each distributor location
+  for (i = 0; i < locations.length; i++) {  
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+      map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        // infowindow.setContent(locations[i][0]);
+        name = locations[i][0]
+        address = locations[i][3]
+        phone = locations[i][4]
+        link = "<a href = " + locations[i][5]+ ">" + locations[i][5] + "</a>"
+        loc_details =  "<b>" + name + "</b> <br/>" + address + "</b> <br/>" + phone + "</b> <br/>" + link
+        infowindow.setContent(loc_details);
+        infowindow.open(map, marker);
+      }
+
+  
+    })(marker, i));
+    homeMarker();
+  }
+
+  function homeMarker() {
+  var homemarker = new google.maps.Marker({
+          position: new google.maps.LatLng(40.6892, 74.0445),
+          map: map
+        });
+  }
+
+  
+
+  
+</script>
+<!--end map-->
+
+{% endblock %}

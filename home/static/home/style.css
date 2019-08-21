@@ -1,0 +1,44 @@
+.bg-custom { 
+    background-color: #000; 
+}
+
+.navbar-dark .navbar-nav .nav-link, .nav-link {
+    color:white;
+    font-weight: bold;
+    font-size: 130%;
+    white-space: nowrap;
+}
+
+/* .navbar-nav > li{
+    padding-left:35px;
+  } */
+
+
+
+h1{
+    font-weight: 700;
+    font-size: 5em;
+    color:white;
+}
+
+
+
+body{
+    background-image:url("{% static 'images/black_steel.jpg' %}");
+}
+
+.product-icon-container img{
+    width: 150px;
+    height: 150px;
+}
+
+.product-icon-body h1, p{
+    color: black;
+}
+
+.product-detail-container h1, p{
+    color: black;
+}
+
+
+

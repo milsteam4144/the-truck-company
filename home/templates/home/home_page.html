@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block background %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/css/mdb.min.css" rel="stylesheet">
+
+<style>
+body{
+    background-color:black;
+    background-size: cover;
+    color: white;
+}
+p, h3{
+    text-align: center;
+    color: white;
+}
+
+.info{
+  background-image: url("{% static 'images/black_steel.jpg' %}");
+  background-size: cover;
+  display:grid;
+  grid-template-rows: 100px 300px;
+  align-items: center;
+  justify-items: center;
+  border-style:groove;
+  border-color: rgb(36, 35, 35);
+  border-width: 10px;
+  padding-top:50px;
+  margin-bottom:50px;
+  padding-bottom:50px;
+  padding-left:30px;
+  padding-right:30px;
+  margin-left:55px;
+
+
+}
+
+#carousel_pics{
+  opacity: .8;
+  background-color:rgba(0, 0, 0,);
+  border-style:groove;
+  border-color: rgb(36, 35, 35);
+  border-width: 5px;
+  /* new */
+  position: absolute;
+}
+
+
+
+#overlay{
+  font-family: "Anton", sans-serif;
+  position: relative;
+  width: 100%;
+  height: 70%;
+  z-index: 9;
+  left:40px;
+  top:40px;
+}
+
+#overlay h1{
+font-size:5vw; 
+}
+
+
+.text-container{
+padding-top: 75px;
+padding-left:50px;
+padding-right:50px;
+padding-bottom:7%;
+}
+
+.text-container h3{
+color:black;
+}
+
+#dump-video{
+  width:100%;
+   height:100%;
+}
+
+#carousel-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 90vh;
+}
+
+
+
+
+</style>
+{% endblock %}
+
+
+{% block body %}
+
+<div id=carousel-grid>
+<div id="carousel_pics">
+<div id="home_carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="../static/images/flatbed_hay.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../static/images/snow_long.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../static/images/welder.jpg" alt="Third slide">
+    </div>
+    <div class="carousel-item">
+        <img class="d-block w-100" src="../static/images/truck_mountains.jpg" alt="Third slide">
+      </div>
+  </div>
+  <a class="carousel-control-prev" href="#home_carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" href="#home_carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+</div>
+<div id="overlay">
+    <h1>The Best in Quality Truck Equipment</h1>
+  </div>
+</div>
+
+
+<div class = "row">
+
+<div class = "col-lg-12" id = "logo-container">
+ 
+</div>
+<!--closing div for row-->
+</div>
+
+<div class = "row">
+
+    <div class = "col-lg-12 text-container" style="background-image:url(../static/images/cement.jpg); color:black; text-align: center;">
+      <img src="{% static 'images/logo_blue.png' %}" alt="" >
+      <h3>The Truck Company proudly operates along the Eastern United States. <br> We provide quality, custom truck parts and accessories</h3>
+      <br>
+      <br><h3><strong>The Truck Company is a manufacturer of truck mounted contractor dump beds, flat beds, rollback carriers, and dump hoists for trucks and trailers.</strong><br><br>We also manufacture snow plows and salt spreaders for winter use. </h3>
+    </div>
+    <!--closing div for row-->
+</div>
+    
+
+
+<div class = "row" style="padding-top:10%; padding-bottom:10%">
+<div class = "col text-center">
+
+  <h4>Custom Hoist System vs. Industry Standard</h4>
+  <br>
+
+    <iframe display="block" height="100%" width = "100%" src="https://www.youtube.com/embed/JphnFGuK0HU?autoplay=1&loop=1&playlist=JphnFGuK0HU&mute=1&autohide=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p>I DO NOT OWN THIS VIDEO AND HAVE NO AFFILIATION WITH THE COMPANY REPRESENTED IN THE VIDEO</p>  
+  </div>
+<div class = " col text-center">
+  <p>A standard dump truck is a truck chassis with a dump body mounted to the frame. The bed is raised by a vertical hydraulic ram mounted under the front of the body, or a horizontal hydraulic ram and lever arrangement between the frame rails, and the back of the bed is hinged at the back of the truck. The tailgate can be configured to swing up on top hinges (and sometimes also to fold down on lower hinges)[10] or it can be configured in the "High Lift Tailgate" format wherein pneumatic rams lift the gate open and up above the dump body. n the United States most standard dump trucks have one front steering axle and one (4x2[a] 4-wheeler)) or two (6x4 6-wheeler) rear axles which typically have dual wheels on each side. Tandem rear axles are almost always powered,[b] front steering axles are also sometimes powered (4x4, 6x6). Unpowered axles are sometimes used to support extra weight.[c] Most unpowered rear axles can be raised off the ground to minimize wear when the truck is empty or lightly loaded, and are commonly called "lift axles".</p>
+</div>
+
+<!--end of row-->
+</div>
+
+<div class = "row d-flex flex-wrap align-items-center" style="background-image:url(../static/images/cement.jpg); color:black;">
+    <div class = " col text-center">
+        <h2>We proudly operate in the United States and employee American Workers</h2><br>
+        <h4>The Truck Company has locations in North Carolina, South Carolina, Virginia and West Virginia. <br> <br> We manufacture all of our Products in the USA from American sourced materials.</h4>
+      </div>
+
+  <div class = "col text-center">
+    <img class = "img-fluid" src="{% static 'images/bent_worker.jpg' %}" size="width:10%; height:10%">
+    </div>
+  
+  
+  <!--end of row-->
+  </div>
+{% endblock %}

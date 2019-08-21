@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block background %}
+<style>
+    body{
+        background-image: url("../../static/images/cement.jpg");
+        background-size:cover;
+        background-position-y: 110px;
+        }
+
+    #about-content{
+        
+        text-align: center;
+        padding-top: 2%;
+        padding-bottom: 4%;
+        padding-left:2%;
+        padding-right:2%;
+        color: black;
+        opacity: .9;
+}
+
+    #video-content{
+        background-color:pink;
+        padding-bottom:30%;
+    }
+     p{
+        font-size:1.2vw;
+    }
+
+    h1{
+        font-family: "Anton", sans-serif;
+        color:black;
+        font-size:6vw;
+    }
+
+    .container-fluid{
+        padding-bottom:2%;
+    } 
+
+</style>
+{% endblock %}
+
+
+{% block body %}
+        <div class="container-fluid">
+                <div class="row d-flex flex-wrap align-items-center">
+                  <div class="col text-center square">
+                        <img class = "img-fluid" src="{% static 'images/happy_worker.jpg' %}">
+                  </div>
+                  <div class="col text-center">
+                        <h1>A Family of Fabricators</h1>
+                        <br>
+                        <p>Metal fabrication is the creation of metal structures by cutting, bending and assembling processes. It is a value-added[1] process involving the creation of machines, parts, and structures from various raw materials.
+
+                            Typically, a fabrication shop bids on a job, usually based on engineering drawings, and if awarded the contract, builds the product. Large fab shops employ a multitude of value-added processes, including welding, cutting, forming and machining.
+                            
+                            Metal fabrication usually starts with drawings with precise dimensions and specifications. Fabrication shops are employed by contractors, OEMs and VARs. Typical projects include loose parts, structural frames for buildings and heavy equipment, and stairs and hand railings.
+                            
+                            As with other manufacturing processes, both human labor and automation are commonly used. A fabricated product may be called a fabrication, and shops specializing in this type of work are called fab shops. The end products of other common types of metalworking, such as machining, metal stamping, forging, and casting, may be similar in shape and function, but those processes are not classified as fabrication.
+                            </p>
+                  </div>
+                </div>
+              </div>
+
+<div class="container-fluid">
+        <div class="row d-flex flex-wrap align-items-center" style="background-color:black;">
+                <div class="col text-center">
+                    <br>
+                        <p style ="color:white;">A truck or lorry is a motor vehicle designed to transport cargo. Trucks vary greatly in size, power, and configuration; smaller varieties may be mechanically similar to some automobiles. Commercial trucks can be very large and powerful and may be configured to be mounted with specialized equipment, such as in the case of refuse trucks, fire trucks, concrete mixers, and suction excavators. Strictly speaking, a commercial vehicle without a tractor or other articulation is a "straight truck" while one designed specifically to pull a trailer is not a truck but a "tractor".[1]
+
+                            Modern trucks are largely powered by diesel engines, although small to medium size trucks with gasoline engines exist in the US, Canada, and Mexico.
+                            <br>
+                            <br>
+                            THE LINK TO YOUTUBE VIDEO IS SOLELY FOR VISUAL/SKILL PURPOSES. I DO NOT CLAIM THE VIDEO AND HAVE NO AFFILIATION WITH THE COMPANY REPRESENTED IN THE VIDEO
+                            </p>
+                  </div>
+          <div class="col text-center">
+                <iframe display="block" height="500px" width = "100%" src="https://www.youtube.com/embed/73MDAywJt-w?autoplay=1&loop=1&mute=1&autohide=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          
+        </div>
+      </div>
+
+{% endblock %}

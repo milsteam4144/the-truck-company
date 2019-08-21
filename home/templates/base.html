@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <script src="https://kit.fontawesome.com/2ff64ad4eb.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
+        {% load static %}
+        <link href="https://fonts.googleapis.com/css?family=Allerta+Stencil|Anton|Russo+One|Staatliches|Jockey+One|Bungee&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'home/style.css' %}" type = "text/css">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        
+        {% block background %}
+        {% endblock %}
+
+        
+    {% block head %}
+    <title>{{title}}</title>
+    {% endblock %}
+
+    <!--NAVBAR-->
+    
+      <nav class="navbar navbar-expand-md navbar-dark bg-custom static top">
+              <a class="navbar-brand img-fluid" href="/"> <img src="{% static 'images/logo_blue.png' %}" alt="" > </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                      </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/products">Products</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/locate">Distributor Map</a>
+                      </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Our Companies
+                   </a> <!--If closing a is missing, extra arrow shows up in dropdown-->
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="http://www.godwinmfg.com/">Godwin Manufacturing Co., Inc.</a>
+                      <a class="dropdown-item" href="http://www.champion-hoist.com/">Champion Hoist and Equipment Co., LLC.</a>
+                      <a class="dropdown-item" href="http://www.galiongodwin.com/">Galion-Godwin Truck Body Co., LLC.</a>
+                      <a class="dropdown-item" href="http://www.rstruckbody.com/">R/S-Godwin Truck Body Co., LLC.</a>
+                    </div>
+                  </li>
+                </ul>
+            
+            
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.facebook.com/godwinmfg/"><i class="fab fa-facebook fa-2x"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.youtube.com/channel/UC-Gb5-gdfByxxdYDvVRFrmw"><i class="fab fa-youtube-square fa-2x"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.linkedin.com/company/the-godwin-group/"><i class="fab fa-linkedin-in fa-2x"></i></a>
+                    </li>
+                </ul>
+              </div>
+          </nav>
+    
+</head>
+
+
+
+<body>
+    
+
+   
+    {% block body %}
+    {% endblock %}
+ 
+
+    </body>
+
+    <!-- Footer -->
+<footer class="page-footer font-small darkblue">
+
+    <!-- Copyright -->
+    
+      
+    <div class="footer-copyright text-center py-3">Created by Mallory Milstead using Bootstrap and Python Django. Deployed with AWS<br>
+        This website was created strictly for educational purposes. No affiliation exists between the developer and any entities referenced in the content
+        <br>Any media or links provided are random and no copyright infringement is intended
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+
+</html>

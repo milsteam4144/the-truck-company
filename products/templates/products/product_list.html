@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  
+    <title>{{title}}</title>
+    <style>
+    body{
+        background-image:url("{% static 'images/black_steel.jpg' %}");
+    }
+    .row.display-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .img-thumbnail {
+        height: 100%;
+    }
+    
+   .thumbnail-container{
+       padding-right:100px;
+       padding-left:100px;
+
+   }
+   .col-lg-3{
+       padding-bottom:25px;
+   }
+   
+   .jumbotron-fluid h1{
+       font-family: "Anton", sans-serif;
+       font-size: 7vw;
+       color:rgb(26, 25, 24);
+       display: grid;
+       justify-content: center;
+       text-shadow: 4px 4px rgb(150, 150, 150);
+
+   }
+   .jumbotron-fluid p{
+       font-size:2vw;;
+       color:rgb(26, 25, 24);
+       display: grid;
+       justify-items: center;
+    
+   }
+
+    .jumbotron-fluid{
+        justify-content: center;
+        align-content: center;
+        background-color:white;
+        margin-bottom:3%;
+    }
+
+    .thumbnail-container img, p{ 
+    text-align: center;
+    font-size: larger;
+}
+
+.search-container form{
+    text-align: center;
+    margin-bottom:3%;
+}
+
+#us{
+    justify-items: center;
+}
+
+
+
+
+    </style>
+
+    {% endblock %}
+
+{% block body %}
+
+<!-- <div class="container-full-bg"> -->
+
+<header class="jumbotron-fluid" >
+    <div class = "row d-flex flex-wrap align-items-center">
+        <div id="us" class = "col-lg-2 col-md-2 col-xs-1 text-center" >
+    <img class = "img-fluid " src="{% static 'images/usa.png' %}">
+    </div>
+    <div class = "col-lg-8 col-md-8 col-xs-10">
+            <br><br><h1>Our Products</h1>
+            <br>
+            <p>All of our products are proudly built in The United States of America</p>
+        </div>
+        <div class = "col-lg-2 col-md-2 col-xs-1 text-center">
+    <img class = "img-fluid" src="{% static 'images/truck_icon.jpg' %}">
+        </div>
+</div>
+
+</header>
+
+
+
+<div class = "search-container" >
+        <form text-align="center">
+            {% csrf_token %}
+            <input  type="search" placeholder="Product name or number" name="search" value="{{search_term}}">
+            <button class="btn btn-light" type="submit">Search Products</button>
+            </form>
+</div>
+
+
+<div class="thumbnail-container">
+<div class="row">
+
+    {% for item in product_list %}
+    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+        <div class="img-thumbnail ">
+                <a href='{{ item.get_absolute_url }}'><img class= "img-fluid" src="{{ item.image.url }}" height="250px" width = "250px"></a><p>{{ item.name }}</p><p>{{ item.product_no }}</p>
+        </div>
+    </div>
+
+        <!-- if last column in row -->
+        {% if forloop.counter|divisibleby:4 and not forloop.last %}
+        </div><div class="row">
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+</div>
+<!-- </div> -->
+
+{% endblock %}
